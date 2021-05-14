@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=CloudLogPyCAT
+StartupWMClass=CloudLogPyCAT
+GenericName=K6GTE CloudLogPyCAT
+Comment=Amateur Radio Communications
+Exec=CloudLogPyCAT
+Icon=k6gte-cloudcat
+Terminal=false
+Type=Application
+Categories=HamRadio;
