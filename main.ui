@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>220</width>
+    <height>84</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>K6GTE CloudlogPyCAT</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(42, 42, 42);
+color: rgb(211, 215, 207);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>41</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Freq:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="freq_label">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>71</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00000000</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>41</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mode:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mode_label">
+    <property name="geometry">
+     <rect>
+      <x>183</x>
+      <y>10</y>
+      <width>40</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>XXX</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cloudlog:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="response_label">
+    <property name="geometry">
+     <rect>
+      <x>73</x>
+      <y>32</y>
+      <width>31</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>000</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="errorline_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>54</y>
+      <width>291</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="settingsbutton">
+    <property name="geometry">
+     <rect>
+      <x>147</x>
+      <y>28</y>
+      <width>61</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Settings</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
