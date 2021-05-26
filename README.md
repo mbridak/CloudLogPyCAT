@@ -14,3 +14,8 @@ When run for the first time click the settings button and edit the needed bits.
 ![settings screen](https://github.com/mbridak/CloudLogPyCAT/raw/master/pic/settings.png)
 
 Then be sure to select your radio under the station tab while on the QSO screen for the updated band/mode data to show.
+
+I've updated the desktop icon to be 3d animated. When you try and click on it to launch the program, the cat will bat the mouse away with it's paws.
+
+That last part was BS. Just checking to see if you were paying attention.
+
