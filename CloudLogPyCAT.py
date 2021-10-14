@@ -71,6 +71,7 @@ class MainWindow(QtWidgets.QMainWindow):
 			self.newfreq = radiosocket.recv(1024).decode().strip()
 			radiosocket.send(b'm\n')
 			self.newmode = radiosocket.recv(1024).decode().strip().split()[0]
+			radiosocket.shutdown(socket.SHUT_RDWR)
 			radiosocket.close()
 			self.errorline_label.setText("")
 		except:
