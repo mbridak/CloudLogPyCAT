@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>220</width>
-    <height>84</height>
+    <height>79</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,10 +22,16 @@ color: rgb(211, 215, 207);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>9</y>
       <width>41</width>
       <height>18</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Freq:</string>
@@ -40,6 +46,12 @@ color: rgb(211, 215, 207);</string>
       <height>18</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>00000000</string>
     </property>
@@ -52,6 +64,12 @@ color: rgb(211, 215, 207);</string>
       <width>41</width>
       <height>18</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Mode:</string>
@@ -66,6 +84,12 @@ color: rgb(211, 215, 207);</string>
       <height>18</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>XXX</string>
     </property>
@@ -79,6 +103,12 @@ color: rgb(211, 215, 207);</string>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Cloudlog:</string>
     </property>
@@ -86,11 +116,17 @@ color: rgb(211, 215, 207);</string>
    <widget class="QLabel" name="response_label">
     <property name="geometry">
      <rect>
-      <x>73</x>
-      <y>32</y>
+      <x>83</x>
+      <y>33</y>
       <width>31</width>
       <height>18</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>000</string>
@@ -100,10 +136,16 @@ color: rgb(211, 215, 207);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>54</y>
+      <y>58</y>
       <width>291</width>
       <height>18</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string/>
@@ -112,11 +154,17 @@ color: rgb(211, 215, 207);</string>
    <widget class="QPushButton" name="settingsbutton">
     <property name="geometry">
      <rect>
-      <x>147</x>
-      <y>28</y>
-      <width>61</width>
+      <x>130</x>
+      <y>30</y>
+      <width>80</width>
       <height>26</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Settings</string>

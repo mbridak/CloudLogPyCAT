@@ -1,8 +1,28 @@
 #!/usr/bin/python3
 
-import socket, time, requests, datetime, os, sys, json
+import logging
+logging.basicConfig(level=logging.WARNING)
+
+import socket, requests, datetime, os, sys
+from json import dumps, loads
 from PyQt5 import QtCore, QtWidgets
 from PyQt5 import uic
+from PyQt5.QtCore import QDir
+from PyQt5.QtGui import QFontDatabase
+
+def relpath(filename):
+		try:
+			base_path = sys._MEIPASS # pylint: disable=no-member
+		except:
+			base_path = os.path.abspath(".")
+		return os.path.join(base_path, filename)
+
+def load_fonts_from_dir(directory):
+		families = set()
+		for fi in QDir(directory).entryInfoList(["*.ttf", "*.woff", "*.woff2"]):
+			_id = QFontDatabase.addApplicationFont(fi.absoluteFilePath())
+			families |= set(QFontDatabase.applicationFontFamilies(_id))
+		return families
 
 class MainWindow(QtWidgets.QMainWindow):
 	oldfreq = '0'
@@ -40,21 +60,19 @@ class MainWindow(QtWidgets.QMainWindow):
 		"""
 		home = os.path.expanduser("~")
 		if os.path.exists(home+"/.cloudlogpycat.json"):
-			f = open(home+"/.cloudlogpycat.json", "rt")
-			self.settings_dict = json.loads(f.read())
+			with open(home+"/.cloudlogpycat.json", "rt") as f:
+				self.settings_dict = loads(f.read())
 		else:
-			f = open(home+"/.cloudlogpycat.json", "wt")
-			f.write(json.dumps(self.settings_dict))
-		#connect the change events to resave messages 
-		#.textChanged.connect(self.savestuff)
+			with open(home+"/.cloudlogpycat.json", "wt") as f:
+				f.write(dumps(self.settings_dict))
 
 	def savestuff(self):
 		"""
 		save state as a json file in the home directory
 		"""
 		home = os.path.expanduser("~")
-		f = open(home+"/.cloudlogpycat.json", "wt")
-		f.write(json.dumps(self.settings_dict))
+		with open(home+"/.cloudlogpycat.json", "wt") as f:
+			f.write(dumps(self.settings_dict))
 
 	def settingspressed(self):
 		settingsdialog = settings(self)
@@ -75,7 +93,7 @@ class MainWindow(QtWidgets.QMainWindow):
 			radiosocket.close()
 			self.errorline_label.setText("")
 		except:
-			self.errorline_label.setText(f"Unable to connect to: {str(self.settings_dict['host'])}:{str(self.settings_dict['port'])}")
+			self.errorline_label.setText(f"No connection: {str(self.settings_dict['host'])}:{str(self.settings_dict['port'])}")
 
 	def mainloop(self):
 		self.rigconnect()
@@ -111,8 +129,8 @@ class settings(QtWidgets.QDialog):
 	def loadsettings(self):
 		home = os.path.expanduser("~")
 		if os.path.exists(home+"/.cloudlogpycat.json"):
-			f = open(home+"/.cloudlogpycat.json", "rt")
-			self.settings_dict = json.loads(f.read())
+			with open(home+"/.cloudlogpycat.json", "rt") as f:
+				self.settings_dict = loads(f.read())
 			self.radioname_field.setText(self.settings_dict['radio_name'])
 			self.cloudlogapi_field.setText(self.settings_dict['key'])
 			self.cloudlogurl_field.setText(self.settings_dict['cloudurl'])
@@ -126,12 +144,15 @@ class settings(QtWidgets.QDialog):
 		self.settings_dict['host'] = self.rigcontrolip_field.text()
 		self.settings_dict['port'] = int(self.rigcontrolport_field.text())
 		home = os.path.expanduser("~")
-		f = open(home+"/.cloudlogpycat.json", "wt")
-		f.write(json.dumps(self.settings_dict))
+		with open(home+"/.cloudlogpycat.json", "wt") as f:
+			f.write(dumps(self.settings_dict))
 		
 	
 app = QtWidgets.QApplication(sys.argv)
 app.setStyle('Fusion')
+font_dir = relpath("font")
+families = load_fonts_from_dir(os.fspath(font_dir))
+logging.info(families)
 window = MainWindow()
 window.show()
 window.loadsaved()

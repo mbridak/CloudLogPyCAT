@@ -22,7 +22,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLabel" name="label_2">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -40,7 +40,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLineEdit" name="radioname_field">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -55,7 +55,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLabel" name="label_4">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -73,7 +73,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLineEdit" name="cloudlogapi_field">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -88,7 +88,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLabel" name="label_5">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -106,7 +106,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLineEdit" name="cloudlogurl_field">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -121,7 +121,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLabel" name="label_6">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -139,7 +139,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLineEdit" name="rigcontrolip_field">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -154,7 +154,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLabel" name="label_7">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -172,7 +172,7 @@ color: rgb(211, 215, 207);</string>
     <widget class="QLineEdit" name="rigcontrolport_field">
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -193,7 +193,7 @@ color: rgb(211, 215, 207);</string>
      </property>
      <property name="font">
       <font>
-       <family>Courier</family>
+       <family>JetBrains Mono</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
