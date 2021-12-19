@@ -3,7 +3,8 @@
 import logging
 logging.basicConfig(level=logging.WARNING)
 
-import socket, requests, datetime, os, sys
+import xmlrpc.client
+import requests, datetime, os, sys
 from json import dumps, loads
 from PyQt5 import QtCore, QtWidgets
 from PyQt5 import uic
@@ -34,14 +35,15 @@ class MainWindow(QtWidgets.QMainWindow):
 		"key": "yourAPIkey",
 		"cloudurl": "http://www.youraddress.com/index.php/api/radio",
 		"radio_name": "IC-7300",
-		"host": "127.0.0.1",
-		"port": 4532
+		"host": "localhost",
+		"port": 12345
 	}
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 		uic.loadUi(self.relpath("main.ui"), self)
 		self.settingsbutton.clicked.connect(self.settingspressed)
+		self.server = xmlrpc.client.ServerProxy(f"http://{self.settings_dict['host']}:{self.settings_dict['port']}")
 
 	def relpath(self, filename):
 		"""
@@ -65,6 +67,7 @@ class MainWindow(QtWidgets.QMainWindow):
 		else:
 			with open(home+"/.cloudlogpycat.json", "wt") as f:
 				f.write(dumps(self.settings_dict))
+		self.server = xmlrpc.client.ServerProxy(f"http://{self.settings_dict['host']}:{self.settings_dict['port']}")
 
 	def savestuff(self):
 		"""
@@ -82,18 +85,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
 	def rigconnect(self):
 		try:
-			radiosocket=socket.socket()
-			radiosocket.settimeout(0.1)
-			radiosocket.connect((self.settings_dict['host'], int(self.settings_dict['port'])))
-			radiosocket.send(b'f\n')
-			self.newfreq = radiosocket.recv(1024).decode().strip()
-			radiosocket.send(b'm\n')
-			self.newmode = radiosocket.recv(1024).decode().strip().split()[0]
-			radiosocket.shutdown(socket.SHUT_RDWR)
-			radiosocket.close()
+			self.newfreq = self.server.rig.get_vfo()
+			self.newmode = self.server.rig.get_mode()
 			self.errorline_label.setText("")
-		except:
-			self.errorline_label.setText(f"No connection: {str(self.settings_dict['host'])}:{str(self.settings_dict['port'])}")
+		except Exception as e:
+			self.errorline_label.setText(f"{e}")
 
 	def mainloop(self):
 		self.rigconnect()
