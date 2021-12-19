@@ -8,11 +8,11 @@ Python client to query the [flrig's](http://w1hkj.com/files/flrig/) XmlRPC inter
 
 Written in Python3, using QT5. Either run from source, or if your running Linux, download the binary [here](https://github.com/mbridak/CloudLogPyCAT/releases/download/21.5.14/CloudLogPyCAT)
 
-![main screen](https://github.com/mbridak/CloudLogPyCAT/raw/master/pic/screen.png)
+![main screen](./pic/screen.png)
 
 When run for the first time click the settings button and edit the needed bits.
 
-![settings screen](https://github.com/mbridak/CloudLogPyCAT/raw/master/pic/settings.png)
+![settings screen](./pic/settings.png)
 
 Then be sure to select your radio under the station tab while on the QSO screen for the updated band/mode data to show.
 
