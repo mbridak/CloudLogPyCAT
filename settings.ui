@@ -128,7 +128,7 @@ color: rgb(211, 215, 207);</string>
       </font>
      </property>
      <property name="text">
-      <string>RigControl IP:</string>
+      <string>FLRIG IP:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -146,7 +146,7 @@ color: rgb(211, 215, 207);</string>
       </font>
      </property>
      <property name="text">
-      <string>127.0.0.1</string>
+      <string>localhost</string>
      </property>
     </widget>
    </item>
@@ -161,7 +161,7 @@ color: rgb(211, 215, 207);</string>
       </font>
      </property>
      <property name="text">
-      <string>RigControl Port:</string>
+      <string>Port:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -179,7 +179,7 @@ color: rgb(211, 215, 207);</string>
       </font>
      </property>
      <property name="text">
-      <string>4532</string>
+      <string>12345</string>
      </property>
     </widget>
    </item>
