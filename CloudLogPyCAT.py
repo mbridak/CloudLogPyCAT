@@ -13,19 +13,15 @@ Where to yell at : michael.bridak@gmail.com
 # pylint: disable=invalid-name
 
 import logging
-
-
 import datetime
 import os
 import sys
-import xmlrpc.client
 from json import dumps, loads
 import requests
 from PyQt5 import QtCore, QtWidgets
 from PyQt5 import uic
 from PyQt5.QtCore import QDir
 from PyQt5.QtGui import QFontDatabase
-
 from cat_interface import CAT
 
 logging.basicConfig(level=logging.WARNING)
@@ -63,17 +59,16 @@ class MainWindow(QtWidgets.QMainWindow):
         "key": "yourAPIkey",
         "cloudurl": "http://www.youraddress.com/index.php/api/radio",
         "radio_name": "IC-7300",
+        "CAT_type": "rigctld",
         "host": "localhost",
-        "port": 12345,
+        "port": 4532,
     }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         uic.loadUi(self.relpath("main.ui"), self)
         self.settingsbutton.clicked.connect(self.settingspressed)
-        self.server = xmlrpc.client.ServerProxy(
-            f"http://{self.settings_dict['host']}:{self.settings_dict['port']}"
-        )
+        self.cat_interface = None
 
     def relpath(self, filename):
         """Checks to see if program has been packaged with pyinstaller.
@@ -101,8 +96,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 home + "/.cloudlogpycat.json", "wt", encoding="utf-8"
             ) as file_handle:
                 file_handle.write(dumps(self.settings_dict))
-        self.server = xmlrpc.client.ServerProxy(
-            f"http://{self.settings_dict['host']}:{self.settings_dict['port']}"
+        self.cat_interface = CAT(
+            self.settings_dict["CAT_type"],
+            self.settings_dict["host"],
+            self.settings_dict["port"],
         )
 
     def savestuff(self):
@@ -122,11 +119,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def rigconnect(self):
         """get the radio state."""
         try:
-            self.newfreq = self.server.rig.get_vfo()
-            self.newmode = self.server.rig.get_mode()
-            self.errorline_label.setText("")
-        except Exception as err:
-            self.errorline_label.setText(f"{err}")
+            self.newfreq = self.cat_interface.get_vfo()
+            self.newmode = self.cat_interface.get_mode()
+        except Exception:
+            pass
 
     def mainloop(self):
         """Where the magik happens"""
@@ -180,6 +176,16 @@ class Settings(QtWidgets.QDialog):
             self.radioname_field.setText(self.settings_dict["radio_name"])
             self.cloudlogapi_field.setText(self.settings_dict["key"])
             self.cloudlogurl_field.setText(self.settings_dict["cloudurl"])
+            if (
+                "CAT_type" in self.settings_dict
+                and self.settings_dict["CAT_type"] == "rigctld"
+            ):
+                self.rigctld_radioButton.setChecked(True)
+            if (
+                "CAT_type" in self.settings_dict
+                and self.settings_dict["CAT_type"] == "flrig"
+            ):
+                self.flrig_radioButton.setChecked(True)
             self.rigcontrolip_field.setText(self.settings_dict["host"])
             self.rigcontrolport_field.setText(str(self.settings_dict["port"]))
 
@@ -190,6 +196,10 @@ class Settings(QtWidgets.QDialog):
         self.settings_dict["cloudurl"] = self.cloudlogurl_field.text()
         self.settings_dict["host"] = self.rigcontrolip_field.text()
         self.settings_dict["port"] = int(self.rigcontrolport_field.text())
+        if self.rigctld_radioButton.isChecked():
+            self.settings_dict["CAT_type"] = "rigctld"
+        if self.flrig_radioButton.isChecked():
+            self.settings_dict["CAT_type"] = "flrig"
         home = os.path.expanduser("~")
         with open(home + "/.cloudlogpycat.json", "wt", encoding="utf-8") as file_handle:
             file_handle.write(dumps(self.settings_dict))
