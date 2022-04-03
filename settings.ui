@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>217</height>
+    <width>519</width>
+    <height>302</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,6 +18,57 @@
 color: rgb(211, 215, 207);</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>CloudLog URL:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_7">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>CAT Port:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QLineEdit" name="cloudlogapi_field">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>YourKeyHere</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QLabel" name="label_2">
      <property name="font">
@@ -36,7 +87,118 @@ color: rgb(211, 215, 207);</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
+   <item row="2" column="3">
+    <widget class="QLineEdit" name="cloudlogurl_field">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>http://www.yoururl.com/index.php/api/radio</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="3">
+    <widget class="QLineEdit" name="rigcontrolport_field">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>12345</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="3">
+    <widget class="QRadioButton" name="rigctld_radioButton">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>RIGCTLD</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="3">
+    <widget class="QLineEdit" name="rigcontrolip_field">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>localhost</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_6">
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>CAT Host:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0" colspan="4">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>JetBrains Mono</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+     <property name="centerButtons">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
     <widget class="QLineEdit" name="radioname_field">
      <property name="font">
       <font>
@@ -69,8 +231,8 @@ color: rgb(211, 215, 207);</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="cloudlogapi_field">
+   <item row="5" column="3">
+    <widget class="QRadioButton" name="flrig_radioButton">
      <property name="font">
       <font>
        <family>JetBrains Mono</family>
@@ -80,78 +242,12 @@ color: rgb(211, 215, 207);</string>
       </font>
      </property>
      <property name="text">
-      <string>YourKeyHere</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_5">
-     <property name="font">
-      <font>
-       <family>JetBrains Mono</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>CloudLog URL:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QLineEdit" name="cloudlogurl_field">
-     <property name="font">
-      <font>
-       <family>JetBrains Mono</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>http://www.yoururl.com/index.php/api/radio</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_6">
-     <property name="font">
-      <font>
-       <family>JetBrains Mono</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>FLRIG IP:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <widget class="QLineEdit" name="rigcontrolip_field">
-     <property name="font">
-      <font>
-       <family>JetBrains Mono</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>localhost</string>
+      <string>FLRIG</string>
      </property>
     </widget>
    </item>
    <item row="4" column="0">
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="label">
      <property name="font">
       <font>
        <family>JetBrains Mono</family>
@@ -161,55 +257,10 @@ color: rgb(211, 215, 207);</string>
       </font>
      </property>
      <property name="text">
-      <string>Port:</string>
+      <string>CAT Interface:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QLineEdit" name="rigcontrolport_field">
-     <property name="font">
-      <font>
-       <family>JetBrains Mono</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>12345</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>JetBrains Mono</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
-     </property>
-     <property name="centerButtons">
-      <bool>true</bool>
      </property>
     </widget>
    </item>
