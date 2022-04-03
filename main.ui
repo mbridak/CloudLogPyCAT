@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>220</width>
-    <height>79</height>
+    <width>219</width>
+    <height>64</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -130,25 +130,6 @@ color: rgb(211, 215, 207);</string>
     </property>
     <property name="text">
      <string>000</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="errorline_label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>58</y>
-      <width>291</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>JetBrains Mono</family>
-      <pointsize>8</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="settingsbutton">
