@@ -12,11 +12,15 @@ Written in Python3, using QT5. Either run from source, or if your running Linux,
 
 ## Changes since release 21.5.14 Clumpy Litter
 
-I ditched using the rigctld daemon supplied by hamlib tools. Instead I'll be using the [flrig's](http://w1hkj.com/files/flrig/) XmlRPC interface. It's way simpler. It's available on all platforms.
+I Made made a CAT class. So now the it handles both rigctld and flrig.
 
 For Debian based Linux or Raspberry OS you can:
 
 `sudo apt install flrig`
+
+or
+
+`sudo apt install hamlibtools`
 
 ## Running from source
 
@@ -50,7 +54,7 @@ Look in the newly created dist directory to find your binary.
 
 When run for the first time click the settings button and edit the needed bits.
 
-![settings screen](./pic/settings.png)
+![settings screen](pic/settings.png)
 
 Then be sure to select your radio under the station tab while on the QSO screen for the updated band/mode data to show.
 
