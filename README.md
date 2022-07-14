@@ -4,7 +4,7 @@
 
 ![cloud cat](https://github.com/mbridak/CloudLogPyCAT/raw/master/pic/cloudcat.png)
 
-Python client to query the [flrig's](http://w1hkj.com/files/flrig/) XmlRPC interface and report radio frequency/mode to CloudLog
+Python client to query the CAT interface and report radio frequency/mode to CloudLog
 
 Written in Python3, using QT5. Either run from source, or if your running Linux, download the binary [here](https://github.com/mbridak/CloudLogPyCAT/releases/download/21.5.14/CloudLogPyCAT)
 
