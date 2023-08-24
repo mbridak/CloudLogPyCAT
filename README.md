@@ -10,6 +10,10 @@ Written in Python3, using QT5. Either run from source, or if your running Linux,
 
 ![main screen](./pic/screen.png)
 
+## Running on Apple Silicon
+
+@m1geo Notes that He is able to run this on Apple M1 by using Qt6.
+
 ## Changes since release 21.5.14 Clumpy Litter
 
 I Made made a CAT class. So now the it handles both rigctld and flrig.
@@ -61,4 +65,3 @@ Then be sure to select your radio under the station tab while on the QSO screen 
 I've updated the desktop icon to be 3d animated. When you try and click on it to launch the program, the cat will bat the mouse away with it's paws.
 
 That last part was BS. Just checking to see if you were paying attention.
-
