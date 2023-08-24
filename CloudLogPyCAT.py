@@ -138,7 +138,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 "mode": self.newmode,
                 "timestamp": time_stamp,
             }
-            response = requests.post(self.settings_dict["cloudurl"], json=payload)
+            response = requests.post(
+                self.settings_dict["cloudurl"], json=payload, timeout=5
+            )
             self.response_label.setText(str(response.status_code))
             self.oldfreq = self.newfreq
             self.oldmode = self.newmode
