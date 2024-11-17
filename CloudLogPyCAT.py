@@ -52,6 +52,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     oldfreq = "0"
     oldmode = "none"
+    oldpower = 0
     newfreq = "0"
     newmode = "none"
     s = False
@@ -121,13 +122,14 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             self.newfreq = self.cat_interface.get_vfo()
             self.newmode = self.cat_interface.get_mode()
+            self.newpower = self.cat_interface.get_power()
         except Exception:
             pass
 
     def mainloop(self):
         """Where the magik happens"""
         self.rigconnect()
-        if self.newfreq != self.oldfreq or self.newmode != self.oldmode:
+        if self.newfreq != self.oldfreq or self.newmode != self.oldmode or self.newpower != self.oldpower:
             self.freq_label.setText(self.newfreq)
             self.mode_label.setText(self.newmode)
             time_stamp = datetime.datetime.utcnow().strftime("%Y/%m/%d %H:%M")
@@ -137,6 +139,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 "frequency": self.newfreq,
                 "mode": self.newmode,
                 "timestamp": time_stamp,
+                "power": self.newpower
             }
             response = requests.post(
                 self.settings_dict["cloudurl"], json=payload, timeout=5
@@ -144,6 +147,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.response_label.setText(str(response.status_code))
             self.oldfreq = self.newfreq
             self.oldmode = self.newmode
+            self.oldpower = self.newpower
 
 
 class Settings(QtWidgets.QDialog):

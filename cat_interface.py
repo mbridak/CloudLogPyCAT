@@ -102,6 +102,25 @@ class CAT:
                 self.rigctrlsocket = None
         return ""
 
+    def get_power(self) -> int:
+        """Returns mode vai rigctld"""
+        if self.rigctrlsocket is None:
+            self.__initialize_rigctrld()
+        if not self.rigctrlsocket is None:
+            try:
+                self.rigctrlsocket.settimeout(0.5)
+                self.rigctrlsocket.send(b"\\get_level RFPOWER\n")
+                pwr = self.rigctrlsocket.recv(1024).decode().strip().split()[0]
+                return int(float(pwr) * 100.0)
+            except IndexError as exception:
+                logging.warning("getmode_rigctld: %s", exception)
+            except socket.error as exception:
+                logging.warning("getmode_rigctld: %s", exception)
+                self.rigctrlsocket = None
+        return ""
+
+
+
     def set_vfo(self, freq: str) -> bool:
         """Sets the radios vfo"""
         if self.interface == "flrig":
