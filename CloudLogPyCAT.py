@@ -129,7 +129,11 @@ class MainWindow(QtWidgets.QMainWindow):
     def mainloop(self):
         """Where the magik happens"""
         self.rigconnect()
-        if self.newfreq != self.oldfreq or self.newmode != self.oldmode or self.newpower != self.oldpower:
+        if (
+            self.newfreq != self.oldfreq
+            or self.newmode != self.oldmode
+            or self.newpower != self.oldpower
+        ):
             self.freq_label.setText(self.newfreq)
             self.mode_label.setText(self.newmode)
             time_stamp = datetime.datetime.utcnow().strftime("%Y/%m/%d %H:%M")
@@ -139,15 +143,18 @@ class MainWindow(QtWidgets.QMainWindow):
                 "frequency": self.newfreq,
                 "mode": self.newmode,
                 "timestamp": time_stamp,
-                "power": self.newpower
+                "power": self.newpower,
             }
-            response = requests.post(
-                self.settings_dict["cloudurl"], json=payload, timeout=5
-            )
-            self.response_label.setText(str(response.status_code))
-            self.oldfreq = self.newfreq
-            self.oldmode = self.newmode
-            self.oldpower = self.newpower
+            try:
+                response = requests.post(
+                    self.settings_dict["cloudurl"], json=payload, timeout=5
+                )
+                self.response_label.setText(str(response.status_code))
+                self.oldfreq = self.newfreq
+                self.oldmode = self.newmode
+                self.oldpower = self.newpower
+            except requests.exceptions.ConnectionError:
+                ...
 
 
 class Settings(QtWidgets.QDialog):
