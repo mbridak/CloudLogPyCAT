@@ -153,7 +153,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.oldfreq = self.newfreq
                 self.oldmode = self.newmode
                 self.oldpower = self.newpower
-            except requests.exceptions.ConnectionError:
+            except (
+                requests.exceptions.ConnectionError,
+                requests.exceptions.InvalidSchema,
+            ):
                 ...
 
 
